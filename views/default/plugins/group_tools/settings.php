@@ -237,7 +237,7 @@ if ($featured_groups = elgg_get_entities_from_metadata($options)) {
 		$content .= "<tr>";
 		$content .= "<td>" . elgg_view("output/url", array("href" => $group->getURL(), "text" => $group->name)) . "</td>";
 		$content .= "<td style='width: 25px'>";
-		$content .= elgg_view("output/confirmlink", array(
+		$content .= elgg_view("output/url", array(
 			"href" => "action/groups/featured?group_guid=" . $group->getGUID(),
 			"title" => elgg_echo("group_tools:remove"),
 			"text" => elgg_view_icon("delete"),
@@ -286,7 +286,7 @@ if (!empty($auto_joins)) {
 			$content .= "<tr>";
 			$content .= "<td>" . elgg_view("output/url", array("href" => $group->getURL(), "text" => $group->name)) . "</td>";
 			$content .= "<td style='width: 25px'>";
-			$content .= elgg_view("output/confirmlink", array(
+			$content .= elgg_view("output/url", array(
 				"href" => "action/group_tools/toggle_special_state?group_guid=" . $group->getGUID() . "&state=auto_join",
 				"title" => elgg_echo("group_tools:remove"),
 				"text" => elgg_view_icon("delete"),
@@ -337,7 +337,7 @@ if (!empty($suggested_groups)) {
 			$content .= "<tr>";
 			$content .= "<td>" . elgg_view("output/url", array("href" => $group->getURL(), "text" => $group->name)) . "</td>";
 			$content .= "<td style='width: 25px'>";
-			$content .= elgg_view("output/confirmlink", array(
+			$content .= elgg_view("output/url", array(
 				"href" => "action/group_tools/toggle_special_state?group_guid=" . $group->getGUID() . "&state=suggested",
 				"title" => elgg_echo("group_tools:remove"),
 				"text" => elgg_view_icon("delete"),
@@ -368,7 +368,7 @@ $rows = array();
 if ($missing_acl_members = group_tools_get_missing_acl_users()) {
 	$rows[] = array(
 		elgg_echo("group_tools:settings:fix:missing", array(count($missing_acl_members))),
-		elgg_view("output/confirmlink", array(
+		elgg_view("output/url", array(
 			"href" => "action/group_tools/fix_acl?fix=missing",
 			"text" => elgg_echo("group_tools:settings:fix_it"),
 			"class" => "elgg-button elgg-button-action",
@@ -382,7 +382,7 @@ if ($missing_acl_members = group_tools_get_missing_acl_users()) {
 if ($excess_acl_members = group_tools_get_excess_acl_users()) {
 	$rows[] = array(
 		elgg_echo("group_tools:settings:fix:excess", array(count($excess_acl_members))),
-		elgg_view("output/confirmlink", array(
+		elgg_view("output/url", array(
 			"href" => "action/group_tools/fix_acl?fix=excess",
 			"text" => elgg_echo("group_tools:settings:fix_it"),
 			"class" => "elgg-button elgg-button-action",
@@ -396,7 +396,7 @@ if ($excess_acl_members = group_tools_get_excess_acl_users()) {
 if ($wrong_groups = group_tools_get_groups_without_acl()) {
 	$rows[] = array(
 		elgg_echo("group_tools:settings:fix:without", array(count($wrong_groups))),
-		elgg_view("output/confirmlink", array(
+		elgg_view("output/url", array(
 			"href" => "action/group_tools/fix_acl?fix=without",
 			"text" => elgg_echo("group_tools:settings:fix_it"),
 			"class" => "elgg-button elgg-button-action",
@@ -410,7 +410,7 @@ if ($wrong_groups = group_tools_get_groups_without_acl()) {
 if (count($rows) > 1) {
 	$rows[] = array(
 		elgg_echo("group_tools:settings:fix:all:description"),
-		elgg_view("output/confirmlink", array(
+		elgg_view("output/url", array(
 			"href" => "action/group_tools/fix_acl?fix=all",
 			"text" => elgg_echo("group_tools:settings:fix:all"),
 			"class" => "elgg-button elgg-button-action",

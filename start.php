@@ -33,8 +33,8 @@ function group_tools_init() {
 	elgg_register_plugin_hook_handler("route", "groups", "group_tools_route_groups_handler");
 	elgg_register_plugin_hook_handler("route", "livesearch", "group_tools_route_livesearch_handler");
 	
-	elgg_register_page_handler("groupicon", "group_tools_groupicon_page_handler");
-	elgg_register_plugin_hook_handler("entity:icon:url", "group", "groups_tools_group_icon_url_handler");
+//	elgg_register_page_handler("groupicon", "group_tools_groupicon_page_handler");
+//	elgg_register_plugin_hook_handler("entity:icon:url", "group", "groups_tools_group_icon_url_handler");
 	
 	// hook on title menu
 	elgg_register_plugin_hook_handler("register", "menu:title", "group_tools_menu_title_handler");

@@ -49,10 +49,10 @@ if ($is_new_group
 	forward(REFERER);
 }
 
-$group = new ElggGroup($group_guid); // load if present, if not create a new group
-if ($group_guid && !$group->canEdit()) {
-	register_error(elgg_echo("groups:cantedit"));
-	forward(REFERER);
+$group = $group_guid ? get_entity($group_guid) : new ElggGroup();
+if (elgg_instanceof($group, "group") && !$group->canEdit()) {
+        register_error(elgg_echo("groups:cantedit"));
+        forward(REFERER);
 }
 
 // Assume we can edit or this is a new group
